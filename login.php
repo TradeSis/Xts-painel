@@ -6,13 +6,29 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>
-    TS Services
-  </title>
-  <link rel="stylesheet" type="text/css" href="/ts/vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <title>TS/painel</title>
+
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+                <script src="/ts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="/ts/vendor/animacoes/bodymovin.js"></script>
+                <script src="/ts/vendor/jquery/jquery.min.js"></script>
+        <script src="/ts/vendor/jquery/jquery.mask.min.js" type="text/javascript" ></script>
+                <script src="/ts/vendor/jquery/tabletojson.min.js" type="text/javascript"  ></script>
+                <script src="/ts/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <script src="/ts/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"  ></script>
+        <script src="/ts/vendor/bootstrap/bootbox/bootbox.min.js" type="text/javascript" ></script>
+        <link  href="/ts/vendor/bootstrap/css/bootstrap.min.css" rel= "stylesheet" type="text/css"  >
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        
+        <link  href="/ts/services/css/bootstrap.css" rel= "stylesheet" type="text/css">
+        <link  href="/ts/services/css/padraoCss.css" rel= "stylesheet" type="text/css">
+
+        
 </head>
 
 <body class="bg-default">
@@ -55,7 +71,7 @@
               
               ?>
 
-              <form role="form" action="/ts/painel/verificar_usuario.php" method="post">
+              <form role="form" action="verificar_usuario.php" method="post">
                 <div class="form-group mb-3">
 
                   <div class="input-group input-group-alternative">
@@ -93,15 +109,6 @@
   </div>
 
 
-  <script src="/ts/vendor/jquery/jquery.min.js"></script>
-  <script src="/ts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/ts/vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="/ts/vendor/animacoes/bodymovin.js"></script>
-  <script type="text/javascript" src="/ts/vendor/jquery/jquery-3.6.1.min.js"></script>
-  <script type="text/javascript" src="/ts/vendor/jquery/jquery.mask.min.js"></script>
-  <script type="text/javascript" src="/ts/vendor/jquery/tabletojson.min.js"></script>
-  <script type="text/javascript" src="/ts/vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/ts/vendor/bootstrap/bootbox/bootbox.min.js"></script>
 </body>
 
 </html>

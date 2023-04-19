@@ -23,32 +23,13 @@ include_once 'head.php';
                     </a>
                     
                 <div class="dropdown-menu" aria-labelledby="userDropdown" style="margin-left:-60px;">
-                    <a class="dropdown-item" href="/ts/sistema/usuario/usuario_alterar.php?idUsuario=<?php echo $_SESSION['idUsuario'] ?>" src=""><i class="bi bi-person-circle"></i>&#32;<samp>Perfil</samp></a>
+                    <a class="dropdown-item" href="usuario/usuario_alterar.php?idUsuario=<?php echo $_SESSION['idUsuario'] ?>" src=""><i class="bi bi-person-circle"></i>&#32;<samp>Perfil</samp></a>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
                 </div>
             </li>
     
         </ul>
 </nav>
-    <!-- Modal sair -->
-    <div class="modal fade" id="logoutModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Deseja sair?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Selecione "Logout" abaixo se você deseja encerrar sua sessão.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary logout" href="/ts/painel/logout.php">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 
 <div class="container-fluid mt-3">
@@ -68,9 +49,9 @@ include_once 'head.php';
 
         <div class="box">
             <img src="image/icon-2.png" alt="">
-            <h3>Sistema</h3>
+            <h3>Lojas</h3>
             
-            <a href="/ts/sistema" class="btn">acessar</a>
+            <a href="/ts/lojas/" class="btn">acessar</a>
         </div>
 
         
