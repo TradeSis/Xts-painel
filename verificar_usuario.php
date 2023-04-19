@@ -35,7 +35,7 @@ if (!$user == "") {
                 $_SESSION['usuario'] = $user;
                 $_SESSION['idUsuario'] = $idUsuario;
                 $_SESSION['idCliente'] = $idCliente;
-                header('Location: /ts/painel/');
+                header('Location: /ts/painel');
                 /* header('Location: index.php'); */
         }
         else {
