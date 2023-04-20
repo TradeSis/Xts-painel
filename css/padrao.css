@@ -1,46 +1,6 @@
 /* FILTRO TABELA */
-:root{
-    --nav-width: 250px;
-    --nav-left: 0px;
-    
-  }
-  
-  
-  *{
-    margin: 0;
-    padding: 0;  
-    /* font-family: sans-serif; */ 
-    /* font: 14px sans-serif; */
-  }
-  
-  
-  .Menu {
-    background-color: #1e4ac2;
-    color: #FFF;
-  }
-  .Menu:hover {
-    
-    color: #FFF;
-  }
-  
-  .diviFrame {
-    padding-left: 0px;
-  /*   transition: left 3s; */
-  }
-  .diviFrame.mostra {
-    padding-left: 164px;
-    
-    /* transition: right 3s; */
-  }
-  
-  .iFrame {
-    width: 100%;
-    height: 551px;
-    overflow: hidden;
-    overflow-x: hidden;
-    border: 0px solid #000;
-    
-  }
+
+
   
   .menuFiltros{
     background-color:#d3d3d3;
@@ -73,8 +33,8 @@
     font-weight: bold;
   }
   
-  .btnAbre{
-    margin-top: 8px;
+  .btnAbre{   /* BOTÂO DO FILTRO */
+    margin-top: 5px;
     margin-bottom: 10px;
    /* position: absolute;*/
     /* top: 10px; */ /*15px*/
