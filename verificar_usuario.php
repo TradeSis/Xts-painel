@@ -21,9 +21,8 @@ $statusUsuario = $dados['statusUsuario'];
 $user = $dados['nomeUsuario'];
 $idUsuario = $dados['idUsuario'];
 $idCliente = $dados['idCliente'];
-
+$email = $dados['email'];
 $senhaVerificada = md5($passwordDigitada);
-
 //
 if (!$user == "") {
 
@@ -35,6 +34,9 @@ if (!$user == "") {
                 $_SESSION['usuario'] = $user;
                 $_SESSION['idUsuario'] = $idUsuario;
                 $_SESSION['idCliente'] = $idCliente;
+                $_SESSION['email'] = $email;
+
+                
                 header('Location: /ts/painel');
                 /* header('Location: index.php'); */
         }

@@ -25,7 +25,7 @@
     padding-left: 0px;
 }
 .diviFrame.mostra {
-    padding-left: 250px;
+    padding-left: 163px;              /* ESTA OK */
 }
 
 .navbar ul {
@@ -134,7 +134,7 @@
   } */
   
   @media (max-width: 710px) {
-    .btnAbre{
+    .hamburgerAbre{
         margin-left: 0px;
         margin-right: 0px;
     }
@@ -172,7 +172,7 @@
   .nav-link{
     color: #FFF;
   }
-.btnAbre span{
+.hamburgerAbre span{
     font-size: 35px;
 }
 
