@@ -4,6 +4,8 @@
 //Lucas 13032023 - criado versão 2 do menu.
 
 include_once 'head.php';
+include_once 'database/aplicativo.php';
+$aplicativos = buscaAplicativos($_SESSION['idUsuario']);
 
 ?>
 
@@ -55,75 +57,21 @@ include_once 'head.php';
 
     <h1 class="heading"><a href="#"><img src="../img/brand/blue.png" width="300"></a></h1>
 
-<?php
-   if ($_SESSION['idCliente'] == NULL) { ?>
     <div class="box-container mt-3">
-
+        <?php
+        foreach ($aplicativos as $aplicativo) {
+        ?>
         <div class="box">
             <img src="image/icon-1.png" alt="">
-            <h3>Services</h3>
+            <h3><?php echo $aplicativo['nomeAplicativo'] ?></h3>
             
-            <a href="/ts/services" class="btn">acessar</a>
+            <a href="<?php echo $aplicativo['appLink'] ?>" class="btn">acessar</a>
         </div>
 
-        <div class="box">
-            <img src="image/icon-2.png" alt="">
-            <h3>Sistema</h3>
-            
-            <a href="/ts/sistema" class="btn">acessar</a>
-        </div>
-
-        
-
-        <div class="box">
-            <img src="image/icon-2.png" alt="">
-            <h3>Outros</h3>
-            
-            <a href="#" class="btn">acessar</a>
-        </div>
-        <div class="box">
-            <img src="image/icon-2.png" alt="">
-            <h3>Outros</h3>
-            
-            <a href="#" class="btn">acessar</a>
-        </div>
-        <div class="box">
-            <img src="image/icon-2.png" alt="">
-            <h3>Outros</h3>
-            
-            <a href="#" class="btn">acessar</a>
-        </div>
-
-    </div>
-<?php }
-if ($_SESSION['idCliente']  == 1) { ?>
-
-<div class="box-container mt-3">
-
-        <div class="box">
-            <img src="image/icon-1.png" alt="">
-            <h3>Services</h3>
-            
-            <a href="/ts/services" class="btn">acessar</a>
-        </div>
+        <?php } ?>
 
     </div>
 
-
-<?php }
-if ($_SESSION['idCliente']  == 10) { ?>
-
-<div class="box-container mt-3">
-
-        <div class="box">
-            <img src="image/icon-1.png" alt="">
-            <h3>Lojas</h3>
-            
-            <a href="/ts/lojas/" class="btn">acessar</a>
-        </div>
-
-    </div>
-<?php } ?>
 
 
 
