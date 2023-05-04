@@ -25,6 +25,14 @@ function chamaAPI ($URL,$apiUrlParametros,$apiEntrada,$apiMethod) {
 	curl_setopt($apiCurl, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($apiCurl, CURLOPT_CUSTOMREQUEST, $apiMethod);
 	curl_setopt($apiCurl, CURLOPT_HTTPHEADER, $apiHeaders );
+	
+    /* helio 26.04.2023 incluido parametros */
+    curl_setopt($apiCurl, CURLOPT_ENCODING, '' );
+    curl_setopt($apiCurl, CURLOPT_MAXREDIRS, 10 );
+    curl_setopt($apiCurl, CURLOPT_SSL_VERIFYHOST, false );
+    curl_setopt($apiCurl, CURLOPT_SSL_VERIFYPEER, false );
+    /**/
+
 	if (isset($apiEntrada)) { 
 		curl_setopt($apiCurl, CURLOPT_POSTFIELDS, $apiEntrada); 
 	}
