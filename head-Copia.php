@@ -1,4 +1,5 @@
 <?php
+// gabriel head atualizaçao
 // Lucas 19042023 -  adicionado link para bootstrap.css e padraoCss.css
 // Lucas 29032023 - modificado tempo da seção
 // Lucas 09032023 -  linha 5, foi adicionado parametro de tempo 
