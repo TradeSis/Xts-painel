@@ -58,7 +58,7 @@ $aplicativos = buscaAplicativos($_SESSION['idUsuario']);
 
     <div class="box-container mt-3">
         <?php
-        if (count($aplicativos) == 6) { ?>
+        if (isset($aplicativos['idAplicativo'])) { ?>
             <div class="box">
                 <img src="image/icon-1.png" alt="">
                 <h3><?php echo $aplicativos['nomeAplicativo'] ?></h3>
