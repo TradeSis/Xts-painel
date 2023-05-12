@@ -6,7 +6,6 @@
 include_once 'head.php';
 include_once 'database/aplicativo.php';
 $aplicativos = buscaAplicativos($_SESSION['idUsuario']);
-
 ?>
 
 <link rel="stylesheet" href="css/painel.css">
@@ -59,6 +58,14 @@ $aplicativos = buscaAplicativos($_SESSION['idUsuario']);
 
     <div class="box-container mt-3">
         <?php
+        if (isset($aplicativos['idAplicativo'])) { ?>
+            <div class="box">
+                <img src="image/icon-1.png" alt="">
+                <h3><?php echo $aplicativos['nomeAplicativo'] ?></h3>
+                
+                <a href="<?php echo $aplicativos['appLink'] ?>" class="btn">acessar</a>
+            </div>
+        <?php } else {
         foreach ($aplicativos as $aplicativo) {
         ?>
         <div class="box">
@@ -67,8 +74,7 @@ $aplicativos = buscaAplicativos($_SESSION['idUsuario']);
             
             <a href="<?php echo $aplicativo['appLink'] ?>" class="btn">acessar</a>
         </div>
-
-        <?php } ?>
+        <?php }} ?>
 
     </div>
 
