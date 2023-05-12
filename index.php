@@ -55,7 +55,7 @@ $aplicativos = buscaAplicativos($_SESSION['idUsuario']);
 
 <div class="container-fluid mt-3">
 
-    <h1 class="heading"><a href="#"><img src="../img/brand/blue.png" width="300"></a></h1>
+    <h1 class="heading"><a href="#"><img src="../img/brand/logo.png" width="300"></a></h1>
 
     <div class="box-container mt-3">
         <?php
