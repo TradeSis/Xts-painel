@@ -3,7 +3,7 @@
 //gabriel 220323 11:19 adicionado idcliente
 // helio 26012023 16:16
 
-session_start();
+
 
 
 include_once 'conexao.php';
@@ -26,28 +26,22 @@ $senhaVerificada = md5($passwordDigitada);
 //
 if (!$user == "") {
 
-
         if ($password == $senhaVerificada) {
+                if ($statusUsuario == 0) {
+                        header('Location: /ts/painel/auth.php?idUsuario=' . $idUsuario);
+                }
+                if ($statusUsuario == 1) {
 
-                $_SESSION['START'] = time(); 
-                $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-                $_SESSION['usuario'] = $user;
-                $_SESSION['idUsuario'] = $idUsuario;
-                $_SESSION['idCliente'] = $idCliente;
-                $_SESSION['email'] = $email;
-
-                
-                header('Location: /ts/painel');
-                /* header('Location: index.php'); */
-        }
-        else {
+                        header('Location: /ts/painel/autenticar.php?idUsuario=' . $idUsuario);
+                }
+        } else {
                 $mensagem = "senha errada!";
-                header('Location: /ts/painel/login.php?mensagem='. $mensagem);
+                header('Location: /ts/painel/login.php?mensagem=' . $mensagem);
         }
 } else {
         $mensagem = "usuario não cadastrado!";
         //$mensagem = $dados['retorno'];
         /* echo $mensagem; */
-        header('Location: /ts/painel/login.php?mensagem='. $mensagem);
+        header('Location: /ts/painel/login.php?mensagem=' . $mensagem);
 
 }
