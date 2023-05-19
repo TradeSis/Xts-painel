@@ -28,20 +28,20 @@ if (!$user == "") {
 
         if ($password == $senhaVerificada) {
                 if ($statusUsuario == 0) {
-                        header('Location: /ts/painel/auth.php?idUsuario=' . $idUsuario);
+                        header('Location: auth.php?idUsuario=' . $idUsuario);
                 }
                 if ($statusUsuario == 1) {
 
-                        header('Location: /ts/painel/autenticar.php?idUsuario=' . $idUsuario);
+                        header('Location: autenticar.php?idUsuario=' . $idUsuario);
                 }
         } else {
                 $mensagem = "senha errada!";
-                header('Location: /ts/painel/login.php?mensagem=' . $mensagem);
+                header('Location: login.php?mensagem=' . $mensagem);
         }
 } else {
         $mensagem = "usuario não cadastrado!";
         //$mensagem = $dados['retorno'];
         /* echo $mensagem; */
-        header('Location: /ts/painel/login.php?mensagem=' . $mensagem);
+        header('Location: login.php?mensagem=' . $mensagem);
 
 }
