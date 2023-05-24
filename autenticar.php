@@ -28,11 +28,11 @@ if(isset($_POST['token'])){
         $_SESSION['idUsuario'] = $idUsuario;
         $_SESSION['idCliente'] = $idCliente;
         $_SESSION['email'] = $email;
-        header('Location: /ts/painel/');
+        header('Location: '. URLROOT . '/painel/');
     }
     else {
         $mensagem = "Token inválido ou expirado!";
-                header('Location: /ts/painel/login.php?mensagem=' . $mensagem);
+                header('Location: '. URLROOT . '/painel/login.php?mensagem=' . $mensagem);
     }
     die();
 }
@@ -81,7 +81,7 @@ if(isset($_POST['token'])){
                         </div>
                         <div class="container">
                             <a class="brand">
-                                <img src="../img/brand/logo.png">
+                                <img src="<?php echo URLROOT ?>/img/brand/logo.png">
                             </a>
                         </div>
                     </div>
