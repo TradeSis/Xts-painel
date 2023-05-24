@@ -28,9 +28,8 @@ if (!$user == "") {
 
         if ($password == $senhaVerificada) {
                 if ($statusUsuario == 0) {
-                        header('Location: auth.php?idUsuario=' . $idUsuario);
-                }
-                if ($statusUsuario == 1) {
+                        header('Location: auth.php?idUsuario=' . $idUsuario . '&email=' . $email);
+                } else {
 
                         header('Location: autenticar.php?idUsuario=' . $idUsuario);
                 }

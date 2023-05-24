@@ -3,19 +3,19 @@ include_once __DIR__ . "/../config.php";
 include_once 'conexao.php';
 require_once '../vendor/autoload.php';
 
-$idUsuario = $_GET['idUsuario'];
-$dados = array();
-$apiEntrada = array(
-    'idUsuario' => $idUsuario,
-);
-$dados = chamaAPI(null, '/api/services/usuario', json_encode($apiEntrada), 'GET');
-$secret_key = $dados['secret'];
-$username = $dados['nomeUsuario'];
+use PragmaRX\Google2FA\Google2FA;
 
-$google2fa = new \PragmaRX\Google2FA\Google2FA();
+$idUsuario = $_GET['idUsuario'];
+$email  = $_GET['email'];
+
+
+$google2fa = new Google2FA();
+
+$secret_key = $google2fa->generateSecretKey(); /* gera secret */
+
 $text = $google2fa->getQRCodeUrl(
-    'tsservices',
-    $username,
+    $_SERVER["HTTP_HOST"].URLROOT,
+    $email,
     $secret_key
 );
 
@@ -82,6 +82,7 @@ $image_url = 'https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl='.$text;
                                 <h5 class="text-center">Registre a autenticação em 2 fatores</h5>
                                 <p style="text-align:center"><?php echo '<img src="'.$image_url.'" />'; ?></p>
                                 <input type="text" class="form-control" name="idUsuario" value="<?php echo $idUsuario ?>" hidden>
+                                <input type="text" class="form-control" name="secret_key" value="<?php echo $secret_key ?>" hidden>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary my-4">Voltar ao Login</button>
                                 </div>

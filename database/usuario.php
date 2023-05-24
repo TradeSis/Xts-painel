@@ -20,7 +20,8 @@ if (isset($_GET['operacao'])) {
 
 	if ($operacao == "ativar") {
 		$apiEntrada = array(
-			'idUsuario' => $_POST['idUsuario']
+			'idUsuario' => $_POST['idUsuario'],
+			'secret_key' => $_POST['secret_key'] // no ativar, guarda a secret
 		);
 		$usuario = chamaAPI(null, '/api/services/usuario/ativar', json_encode($apiEntrada), 'POST');
 	
