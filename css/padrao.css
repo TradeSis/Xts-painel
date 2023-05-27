@@ -4,22 +4,15 @@
   
   .menuFiltros{
     background-color:#d3d3d3;
-    /* background-color: #2bb81f; */ 
-    /* width: var(--nav-width); */
     width: 180px;
-   /*  height: 100%; */
     position: fixed;
-    /* padding-left: -50px;
-    padding-right: -5px; */
     top: 170px;
     left: -250px; /* menu desaparece */  
     transition: left 1s;
     transition: right 0.5s;
     z-index: 2;
     border-radius: 2%;
-   /*  margin-right: -50px; */
   
-   /* border: 1px solid #000; */
   }
   .menuFiltros select{
     background-color: #FFF;
@@ -29,24 +22,24 @@
     padding-top: 10px;
     padding-left: 30px;
     color: #000000;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
+  }
+
+  .menuFiltros li{
+    margin-top: -5px;
   }
   
   .btnAbre{   /* BOTÂO DO FILTRO */
     margin-top: 5px;
     margin-bottom: 10px;
-   /* position: absolute;*/
-    /* top: 10px; */ /*15px*/
     margin-left: 30px;
-  /*  background-color:  rgba(0, 0, 0, 0.3); */
     align-items: center;
     color: rgb(2, 2, 2);
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    /* margin-right: 20px; */
     width: 50px;
   }
   
