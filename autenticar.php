@@ -10,7 +10,7 @@ $dados = array();
 $apiEntrada = array(
         'idUsuario' => $idUsuario,
 );
-$dados = chamaAPI(null, '/api/services/usuario', json_encode($apiEntrada), 'GET');
+$dados = chamaAPI(null, '/services/usuario', json_encode($apiEntrada), 'GET');
 $secret_key = $dados['secret'];
 $user = $dados['nomeUsuario'];
 $idUsuario = $dados['idUsuario'];

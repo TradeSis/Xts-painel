@@ -10,7 +10,7 @@ function buscaAplicativos($idUsuario)
     $apiEntrada = array(
         'idUsuario' => $idUsuario
     );
-    $app = chamaAPI(null, '/api/services/aplicativo', json_encode($apiEntrada), 'GET');
+    $app = chamaAPI(null, '/services/aplicativo', json_encode($apiEntrada), 'GET');
     return $app;
 }
 
