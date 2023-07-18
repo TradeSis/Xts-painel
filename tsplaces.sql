@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 17/07/2023 às 10:21
+-- Tempo de geração: 18/07/2023 às 13:17
 -- Versão do servidor: 10.6.10-MariaDB-1:10.6.10+maria~ubu1804
 -- Versão do PHP: 8.1.12
 
@@ -53,7 +53,9 @@ CREATE TABLE `aplicativo` (
 INSERT INTO `aplicativo` (`idAplicativo`, `nomeAplicativo`, `appLink`, `imgAplicativo`, `pathImg`) VALUES
 (1, 'Sistema', '/ts/sistema', '', ''),
 (2, 'Services', '/ts/services', '', ''),
-(3, 'Crediario', '/ts/crediario', '', '');
+(3, 'Crediario', '/ts/crediario', '', ''),
+(4, 'Cadastros', '/ts/cadastros', '', ''),
+(5, 'Paginas', '/ts/paginas', '', '');
 
 -- --------------------------------------------------------
 
@@ -18192,7 +18194,10 @@ INSERT INTO `menu` (`IDMenu`, `nomeMenu`, `idAplicativo`, `nivelMenu`, `menuHead
 (6, 'Clientes', 3, 1, 1),
 (7, 'Consultas', 3, 1, 0),
 (8, 'Relatórios', 3, 1, 0),
-(9, 'Fiscal', 1, 1, 0);
+(9, 'Fiscal', 1, 1, 0),
+(13, 'Cadastros', 4, 3, 0),
+(14, 'Paginas', 5, 3, 0),
+(15, 'Configuração', 5, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -18254,7 +18259,19 @@ INSERT INTO `menuprograma` (`idMenuPrograma`, `IDMenu`, `progrNome`, `idAplicati
 (38, 9, 'Processo', 1, 'fiscal/fisprocessos.php', 1, 0),
 (39, 9, 'Natureza', 1, 'fiscal/fisnatureza.php', 1, 0),
 (40, 9, 'Operações', 1, 'fiscal/fisoperacao.php', 1, 0),
-(41, 3, 'Agenda', 2, 'demandas/agenda.php', 1, 1);
+(41, 3, 'Agenda', 2, 'demandas/agenda.php', 1, 1),
+(42, 13, 'Pessoas', 4, 'cadastros/pessoas.php', 1, 1),
+(43, 13, 'Produtos', 4, 'cadastros/produtos.php', 1, 1),
+(44, 13, 'Marcas', 4, 'cadastros/marcas.php', 1, 1),
+(45, 13, 'Serviços', 4, 'cadastros/servicos.php', 1, 1),
+(46, 14, 'Posts', 5, 'blog/posts.php', 1, 1),
+(47, 14, 'Receitas', 5, 'blog/receitas.php', 1, 1),
+(48, 14, 'Eventos', 5, 'blog/eventos.php', 1, 1),
+(49, 15, 'Tema', 5, 'configuracao/temas.php', 1, 0),
+(50, 15, 'Paginas', 5, 'configuracao/paginas.php', 1, 0),
+(51, 15, 'Seções', 5, 'configuracao/secao.php', 1, 0),
+(52, 15, 'Categoria', 5, 'configuracao/categorias.php', 1, 0),
+(53, 15, 'Autor', 5, 'configuracao/categorias.php', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -19437,7 +19454,7 @@ ALTER TABLE `anexo`
 -- AUTO_INCREMENT de tabela `aplicativo`
 --
 ALTER TABLE `aplicativo`
-  MODIFY `idAplicativo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idAplicativo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `autor`
@@ -19533,13 +19550,13 @@ ALTER TABLE `mensagens`
 -- AUTO_INCREMENT de tabela `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `IDMenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `IDMenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `menuprograma`
 --
 ALTER TABLE `menuprograma`
-  MODIFY `idMenuPrograma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `idMenuPrograma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `paginas`
