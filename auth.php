@@ -1,5 +1,4 @@
 <?php
-include_once __DIR__ . "/../config.php";
 include_once 'conexao.php';
 require_once '../vendor/autoload.php';
 

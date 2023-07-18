@@ -2,7 +2,7 @@
 // Lucas 08032023 - modificado o action do form para chamar api, linha 67
 // helio 26012023 16:16
 
-include_once __DIR__."/../config.php";
+include_once 'conexao.php';
 
 ?>
 <!DOCTYPE html>

@@ -14,7 +14,7 @@ $dados = array();
 $apiEntrada = array(
         'usuario' => $usuario,
 );
-$dados = chamaAPI(null, '/services/usuario/verifica', json_encode($apiEntrada), 'GET');
+$dados = chamaAPI(null, '/sistema/usuario/verifica', json_encode($apiEntrada), 'GET');
 
 $password = $dados['password'];
 $statusUsuario = $dados['statusUsuario'];
