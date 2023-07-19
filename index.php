@@ -1,5 +1,5 @@
 <?php
-
+echo "painel/index.php<hr>";
 include_once 'head.php';
 include_once ROOT . "/sistema/database/aplicativo.php";
 $aplicativos = buscaAplicativosMenu($_SESSION['idUsuario']);
@@ -7,44 +7,6 @@ $aplicativos = buscaAplicativosMenu($_SESSION['idUsuario']);
 
 ?>
 
-<style>
-    .line {
-        width: 100%;
-        border-bottom: 1px solid #707070;
-    }
-
-    #tabs .tab {
-        display: inline-block;
-        padding: 5px 10px;
-        cursor: pointer;
-        position: relative;
-        z-index: 5;
-        color: #1B4D60;
-    }
-
-    #tabs .whiteborder {
-        border-bottom: 3px solid lightblue;
-        border-radius: 3px 3px 0 0;
-        color: #1B4D60;
-    }
-
-    #tabs .tabContent {
-        position: relative;
-        top: -1px;
-        z-index: 1;
-        padding: 10px;
-        border-radius: 0 0 3px 3px;
-        color: #1B4D60;
-    }
-
-    #tabs .hide {
-        display: none;
-    }
-
-    #tabs .show {
-        display: block;
-    }
-</style>
 
 <body>
     
@@ -151,9 +113,7 @@ $aplicativos = buscaAplicativosMenu($_SESSION['idUsuario']);
     </div>
 
 
-    <div class="diviFrame" style="overflow:hidden;">
-        <iframe class="iFrame container-fluid " id="myIframe" src=""></iframe>
-    </div>
+   
     <script type="text/javascript" src="menu.js"></script>
     <script>
         var tab;
