@@ -1,36 +1,136 @@
 <?php
-//Lucas 05042023 - adicionado foreach para menuLateral.
-//gabriel 220323 11:19 - adicionado IF para usuario cliente
-//Lucas 13032023 - criado versão 2 do menu.
 
 include_once 'head.php';
-include __DIR__ . "/../sistema/database/aplicativo.php";
+include_once ROOT . "/sistema/database/aplicativo.php";
 $aplicativos = buscaAplicativosMenu($_SESSION['idUsuario']);
+
+
 ?>
 
-<link rel="stylesheet" href="css/painel.css">
+<style>
+    .line {
+        width: 100%;
+        border-bottom: 1px solid #707070;
+    }
+
+    #tabs .tab {
+        display: inline-block;
+        padding: 5px 10px;
+        cursor: pointer;
+        position: relative;
+        z-index: 5;
+        color: #1B4D60;
+    }
+
+    #tabs .whiteborder {
+        border-bottom: 3px solid lightblue;
+        border-radius: 3px 3px 0 0;
+        color: #1B4D60;
+    }
+
+    #tabs .tabContent {
+        position: relative;
+        top: -1px;
+        z-index: 1;
+        padding: 10px;
+        border-radius: 0 0 3px 3px;
+        color: #1B4D60;
+    }
+
+    #tabs .hide {
+        display: none;
+    }
+
+    #tabs .show {
+        display: block;
+    }
+</style>
+
 <body>
+    
+    <nav class="Menu navbar navbar-expand topbar static-top shadow">
 
 
-<nav class="navbar Menu pt-2 pb-2">
-  <a class="navbar-brand"></a>
-        
-        <ul class="navbar-nav" style="margin-right:110px; margin-bottom: 50px">
-            <li class="nav-item dropdown font-weight-bold" style="color:white; position: fixed;">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="color:white;">
-                        <span>
-                                <?php echo $logado ?>
-                        </span>
-                    </a>
-                    
-                <div class="dropdown-menu" aria-labelledby="userDropdown" style="margin-left:-60px;">
-                    <a class="dropdown-item" href="<?php echo URLROOT ?>/sistema/usuario/usuario_alterar.php?idUsuario=<?php echo $_SESSION['idUsuario'] ?>" src=""><i class="bi bi-person-circle"></i>&#32;<samp>Perfil</samp></a>
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+
+
+        <a href="<?php echo URLROOT ?>/painel" class="logo"><img src="../img/white.png" width="150"></a>
+
+        <div class=" col-md navbar navbar-expand navbar1">
+            <ul class="navbar-nav mx-auto ml-4" id="novoMenu2">
+                <?php foreach ($aplicativos as $aplicativo) { ?>
+
+                    <li>
+                        <a src="#" href="<?php echo $aplicativo['appLink'] ?>" class="nav-link name" role="button">
+                            <span class="fs-5 text">
+                                <?php echo $aplicativo['nomeAplicativo'] ?>
+                            </span>
+                        </a>
+                    </li>
+                <?php } ?>
+
+
+            </ul>
+
+
+
+        </div>
+
+
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ">
+
+            <!-- Email -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-envelope-exclamation-fill"></i>
+
+                    <span class="badge badge-danger badge-counter"></span>
+                </a>
+
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                    <h6 class="dropdown-header">
+                        Emails Recebidos
+                    </h6>
+
+                    <a class="dropdown-item text-center small text-gray-500" href="#">Ver todas as mensagens</a>
                 </div>
             </li>
-    
+
+            <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- <img class="img-profile rounded-circle" src="../imgs/undraw_profile.svg"> -->
+                    <!--  <i class="bi bi-person-circle"></i>&#32; -->
+                    <span class="fs-1 text"><?php echo $logado ?></span>
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="<?php echo URLROOT ?>/sistema/usuario/usuario_alterar.php?idUsuario=<?php echo $_SESSION['idUsuario'] ?>">
+                        <i class="bi bi-person-circle"></i>&#32;
+                        Perfil
+                    </a>
+                    <a class="dropdown-item" href="<?php echo URLROOT ?>/painel/">
+                        <i class="bi bi-display"></i>&#32;
+                        Painel
+                    </a>
+
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="bi bi-box-arrow-right"></i>&#32;
+                        Logout
+                    </a>
+                </div>
+            </li>
+
         </ul>
-</nav>
+
+    </nav>
+
+
+
+
     <!-- Modal sair -->
     <div class="modal fade" id="logoutModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -51,38 +151,98 @@ $aplicativos = buscaAplicativosMenu($_SESSION['idUsuario']);
     </div>
 
 
-
-<div class="container-fluid mt-3">
-
-    <h1 class="heading"><a href="#"><img src="../img/brand/logo.png" width="300"></a></h1>
-
-    <div class="box-container mt-3">
-        <?php
-        if (isset($aplicativos['idAplicativo'])) { ?>
-            <div class="box">
-                <img src="image/icon-1.png" alt="">
-                <h3><?php echo $aplicativos['nomeAplicativo'] ?></h3>
-                
-                <a href="<?php echo $aplicativos['appLink'] ?>" class="btn">acessar</a>
-            </div>
-        <?php } else {
-        foreach ($aplicativos as $aplicativo) {
-        ?>
-        <div class="box">
-            <img src="image/icon-1.png" alt="">
-            <h3><?php echo $aplicativo['nomeAplicativo'] ?></h3>
-            
-            <a href="<?php echo $aplicativo['appLink'] ?>" class="btn">acessar</a>
-        </div>
-        <?php }} ?>
-
+    <div class="diviFrame" style="overflow:hidden;">
+        <iframe class="iFrame container-fluid " id="myIframe" src=""></iframe>
     </div>
+    <script type="text/javascript" src="menu.js"></script>
+    <script>
+        var tab;
+        var tabContent;
+
+        window.onload = function() {
+            tabContent = document.getElementsByClassName('tabContent');
+            tab = document.getElementsByClassName('tab');
+            hideTabsContent(1);
+        }
+
+        document.getElementById('tabs').onclick = function(event) {
+            var target = event.target;
+            if (target.className == 'tab') {
+                for (var i = 0; i < tab.length; i++) {
+                    if (target == tab[i]) {
+                        showTabsContent(i);
+                        break;
+                    }
+                }
+            }
+        }
+
+        function hideTabsContent(a) {
+            for (var i = a; i < tabContent.length; i++) {
+                tabContent[i].classList.remove('show');
+                tabContent[i].classList.add("hide");
+                tab[i].classList.remove('whiteborder');
+            }
+        }
+
+        function showTabsContent(b) {
+            if (tabContent[b].classList.contains('hide')) {
+                hideTabsContent(0);
+                tab[b].classList.add('whiteborder');
+                tabContent[b].classList.remove('hide');
+                tabContent[b].classList.add('show');
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            // SELECT MENU
+            $("#novoMenu a").click(function() {
+
+                var value = $(this).text();
+                value = $(this).attr('id');
+
+                //IFRAME TAG
+
+                $("#myIframe").attr('src', value);
+            })
+            // SELECT MENU
+            $("#novoMenu2 a").click(function() {
+
+                var value = $(this).text();
+                value = $(this).attr('src');
+
+                //IFRAME TAG
+                if (value) {
+
+                    $("#myIframe").attr('src', value);
+                    $('.menuLateral').removeClass('mostra');
+                    $('.menusecundario').removeClass('mostra');
+                    $('.diviFrame').removeClass('mostra');
 
 
+                }
+
+            })
+
+            // SELECT MENU
+            $("#menuCadastros a").click(function() {
+
+                var value = $(this).text();
+                value = $(this).attr('id');
+
+                //IFRAME TAG
+                if (value != '') {
+                    $("#myIframe").attr('src', value);
+                }
+
+            })
 
 
-</div>
-
+        });
+    </script>
 </body>
 
 </html>
