@@ -1,5 +1,4 @@
 <?php
-include_once __DIR__ . "/../config.php";
 include_once 'conexao.php';
 require_once '../vendor/autoload.php';
 
@@ -10,7 +9,7 @@ $dados = array();
 $apiEntrada = array(
         'idUsuario' => $idUsuario,
 );
-$dados = chamaAPI(null, '/services/usuario', json_encode($apiEntrada), 'GET');
+$dados = chamaAPI(null, '/sistema/usuario', json_encode($apiEntrada), 'GET');
 $secret_key = $dados['secret'];
 $user = $dados['nomeUsuario'];
 $idUsuario = $dados['idUsuario'];

@@ -10,7 +10,7 @@ function buscaUsuarios($idUsuario)
 	$apiEntrada = array(
 		'idUsuario' => $idUsuario,
 	);	
-	$usuario = chamaAPI(null, '/services/usuario', json_encode($apiEntrada), 'GET');
+	$usuario = chamaAPI(null, '/sistema/usuario', json_encode($apiEntrada), 'GET');
 	return $usuario;
 }
 
@@ -23,7 +23,7 @@ if (isset($_GET['operacao'])) {
 			'idUsuario' => $_POST['idUsuario'],
 			'secret_key' => $_POST['secret_key'] // no ativar, guarda a secret
 		);
-		$usuario = chamaAPI(null, '/services/usuario/ativar', json_encode($apiEntrada), 'POST');
+		$usuario = chamaAPI(null, '/sistema/usuario/ativar', json_encode($apiEntrada), 'POST');
 	
 		header('Location: ../login.php');
 	}
