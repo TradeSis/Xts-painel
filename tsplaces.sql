@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 18/07/2023 às 13:17
+-- Tempo de geração: 19/07/2023 às 09:50
 -- Versão do servidor: 10.6.10-MariaDB-1:10.6.10+maria~ubu1804
 -- Versão do PHP: 8.1.12
 
@@ -55,7 +55,8 @@ INSERT INTO `aplicativo` (`idAplicativo`, `nomeAplicativo`, `appLink`, `imgAplic
 (2, 'Services', '/ts/services', '', ''),
 (3, 'Crediario', '/ts/crediario', '', ''),
 (4, 'Cadastros', '/ts/cadastros', '', ''),
-(5, 'Paginas', '/ts/paginas', '', '');
+(5, 'Paginas', '/ts/paginas', '', ''),
+(6, 'Impostos', '/ts/impostos', '', '');
 
 -- --------------------------------------------------------
 
@@ -18186,18 +18187,21 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`IDMenu`, `nomeMenu`, `idAplicativo`, `nivelMenu`, `menuHeader`) VALUES
-(2, 'Cadastros', 2, 3, 0),
-(3, 'Operações', 2, 1, 0),
-(1, 'Sistemas', 1, 5, 0),
+(2, 'ServicesConfigurações', 2, 3, 1),
+(3, 'ServicesOperações', 2, 1, 0),
 (4, 'Perfil', 1, 5, 0),
-(5, 'Cadastros', 1, 2, 0),
+(5, 'SistemaCadastros', 1, 2, 0),
 (6, 'Clientes', 3, 1, 1),
 (7, 'Consultas', 3, 1, 0),
 (8, 'Relatórios', 3, 1, 0),
 (9, 'Fiscal', 1, 1, 0),
 (13, 'Cadastros', 4, 3, 0),
 (14, 'Paginas', 5, 3, 0),
-(15, 'Configuração', 5, 5, 1);
+(15, 'PaginasConfigurações', 5, 5, 1),
+(16, 'SistemaConfigurações', 1, 3, 1),
+(18, 'ImpostosConfigurações', 6, 3, 1),
+(19, 'Operações', 6, 3, 0),
+(20, 'CadastrosConfigurações', 4, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -18220,17 +18224,17 @@ CREATE TABLE `menuprograma` (
 --
 
 INSERT INTO `menuprograma` (`idMenuPrograma`, `IDMenu`, `progrNome`, `idAplicativo`, `progrLink`, `nivelMenu`, `menuAtalho`) VALUES
-(1, 2, 'Contrato Status', 2, 'cadastros/contratoStatus.php', 4, 0),
-(2, 1, 'Usuários', 1, 'usuario/usuario.php', 5, 0),
-(3, 2, 'Clientes', 2, 'cadastros/clientes.php', 1, 0),
-(4, 2, 'Tipo Ocorrência', 2, 'cadastros/tipoocorrencia.php', 4, 0),
-(5, 2, 'Tipo Status', 2, 'cadastros/tipostatus.php', 4, 0),
-(6, 1, 'Aplicativo', 1, 'sistema/aplicativo.php', 5, 0),
-(7, 1, 'Menu', 1, 'sistema/menu.php', 5, 0),
-(8, 1, 'Menu Programa', 1, 'sistema/menuprograma.php', 5, 0),
+(1, 2, 'Contrato Status', 2, 'configuracao/contratoStatus.php', 4, 0),
+(2, 16, 'Usuários', 1, 'configuracao/usuario.php', 1, 0),
+(3, 16, 'Clientes', 1, 'configuracao/clientes.php', 4, 1),
+(4, 2, 'Tipo Ocorrência', 2, 'configuracao/tipoocorrencia.php', 4, 0),
+(5, 2, 'Tipo Status', 2, 'configuracao/tipostatus.php', 4, 0),
+(6, 16, 'Aplicativo', 1, 'configuracao/aplicativo.php', 1, 0),
+(7, 16, 'Menu', 1, 'configuracao/menu.php', 1, 0),
+(8, 16, 'Menu Programa', 1, 'configuracao/menuprograma.php', 1, 0),
 (9, 3, 'Demandas', 2, 'demandas/index.php', 1, 1),
 (10, 3, 'Contratos', 2, 'contratos/index.php', 1, 1),
-(11, 3, 'Tarefas', 2, 'demandas/tarefas.php', 2, 0),
+(11, 3, 'Tarefas', 2, 'demandas/tarefas.php', 3, 1),
 (12, 4, 'Perfil', 1, 'perfil/perfil.php', 5, 0),
 (13, 5, 'Produtos', 1, 'cadastros/produtos.php', 1, 0),
 (20, 4, 'Tema', 1, 'perfil/temas.php', 3, 0),
@@ -18271,7 +18275,13 @@ INSERT INTO `menuprograma` (`idMenuPrograma`, `IDMenu`, `progrNome`, `idAplicati
 (50, 15, 'Paginas', 5, 'configuracao/paginas.php', 1, 0),
 (51, 15, 'Seções', 5, 'configuracao/secao.php', 1, 0),
 (52, 15, 'Categoria', 5, 'configuracao/categorias.php', 1, 0),
-(53, 15, 'Autor', 5, 'configuracao/categorias.php', 1, 0);
+(53, 15, 'Autor', 5, 'configuracao/categorias.php', 1, 0),
+(54, 16, 'Empresas', 1, '', 5, 0),
+(56, 19, 'NCM/Cest', 6, 'ncm/ncm_table.php', 3, 1),
+(57, 18, 'Atividades', 6, 'configuracao/fisatividade.php', 3, 0),
+(58, 18, 'Processo', 6, 'configuracao/fisprocesso.php', 3, 0),
+(59, 18, 'Natureza', 6, 'configuracao/fisnatureza.php', 3, 0),
+(60, 19, 'Operações', 6, 'operacoes/fisoperacao.php', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -19189,7 +19199,10 @@ INSERT INTO `usuarioaplicativo` (`idUsuario`, `idAplicativo`, `nivelMenu`) VALUE
 (14, 1, 5),
 (10, 3, 5),
 (11, 3, 5),
-(15, 2, 1);
+(15, 2, 1),
+(10, 4, 5),
+(10, 5, 5),
+(10, 6, 5);
 
 --
 -- Índices para tabelas despejadas
@@ -19454,7 +19467,7 @@ ALTER TABLE `anexo`
 -- AUTO_INCREMENT de tabela `aplicativo`
 --
 ALTER TABLE `aplicativo`
-  MODIFY `idAplicativo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idAplicativo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `autor`
@@ -19550,13 +19563,13 @@ ALTER TABLE `mensagens`
 -- AUTO_INCREMENT de tabela `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `IDMenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `IDMenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `menuprograma`
 --
 ALTER TABLE `menuprograma`
-  MODIFY `idMenuPrograma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `idMenuPrograma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de tabela `paginas`
