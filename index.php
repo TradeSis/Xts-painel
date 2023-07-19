@@ -4,8 +4,8 @@
 //Lucas 13032023 - criado versão 2 do menu.
 
 include_once 'head.php';
-include_once 'database/aplicativo.php';
-$aplicativos = buscaAplicativos($_SESSION['idUsuario']);
+include __DIR__ . "/../sistema/database/aplicativo.php";
+$aplicativos = buscaAplicativosMenu($_SESSION['idUsuario']);
 ?>
 
 <link rel="stylesheet" href="css/painel.css">
