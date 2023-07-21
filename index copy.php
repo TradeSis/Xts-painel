@@ -1,5 +1,5 @@
 <?php
-//echo "painel/index.php<hr>";
+echo "painel/index.php<hr>";
 include_once 'head.php';
 include_once ROOT . "/sistema/database/aplicativo.php";
 $aplicativos = buscaAplicativosMenu($_SESSION['idUsuario']);
@@ -9,7 +9,6 @@ $aplicativos = buscaAplicativosMenu($_SESSION['idUsuario']);
 
 
 <body>
-    
     
     <nav class="Menu navbar navbar-expand topbar static-top shadow">
 
